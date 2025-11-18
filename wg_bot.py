@@ -7,7 +7,10 @@ import telebot
 from nacl import bindings
 
 
-BOT_TOKEN = "8255873011:AAFsvfNobsJnmZDWxLbI36imfv89nUpMVR8"
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise Exception("BOT_TOKEN environment variable is missing!")
+
 bot = telebot.TeleBot(BOT_TOKEN)
 
 
@@ -51,5 +54,6 @@ if __name__ == "__main__":
     threading.Thread(target=run_server, daemon=True).start()
     print("Bot polling started...")
     bot.polling()
+
 
 
