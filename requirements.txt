@@ -1,2 +1,5 @@
 pyTelegramBotAPI
 pynacl
+paramiko
+qrcode
+Pillow
