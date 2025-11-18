@@ -7,7 +7,7 @@ import telebot
 from nacl import bindings
 
 
-BOT_TOKEN = "8255873011:AAG3-i0NBFgLVyNe6En1SJQrGGzZuJuJpOA"
+BOT_TOKEN = "8255873011:AAEacwzIHiR6GL64AMGCs1ICv9yy3h1-H0s"
 bot = telebot.TeleBot(BOT_TOKEN)
 
 
@@ -51,3 +51,4 @@ if __name__ == "__main__":
     threading.Thread(target=run_server, daemon=True).start()
     print("Bot polling started...")
     bot.polling()
+
