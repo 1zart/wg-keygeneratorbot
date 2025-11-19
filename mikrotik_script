@@ -1,0 +1,19 @@
+:local clientName $name
+:local clientPub $pub
+:local clientAddr $addr
+
+:local wgIf "wireguard1"
+:local serverPub "szLGyX97w45pir469TGm1K6gaNgcA4wD7XMovxtGyDI="
+:local endpoint "185.48.129.190:13231"
+:local dnsServer "1.1.1.1"
+
+/interface/wireguard/peers/add interface=$wgIf public-key="$clientPub" allowed-address="$clientAddr" comment="$clientName"
+
+:local conf ("[Interface]\r\nAddress = ".$clientAddr."\r\nDNS = ".$dnsServer.
+    "\r\n\r\n[Peer]\r\nPublicKey = ".$serverPub.
+    "\r\nAllowedIPs = 0.0.0.0/0\r\nEndpoint = ".$endpoint.
+    "\r\nPersistentKeepalive = 25")
+
+:put $conf
+
+
